@@ -12,7 +12,7 @@ Prerequisites
 
 
 #### `npm i`    to install all node modules
-#### npm run start  to start the project
+#### `npm run start`  to start the project
 
 ## Dependencies used
 
