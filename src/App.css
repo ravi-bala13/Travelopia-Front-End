@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   justify-content: start;
   width: 400px;
-  min-height: 400px;
+  min-height: 380px;
   background: #161a2b;
   text-align: center;
   margin: 20px auto;
@@ -29,22 +29,10 @@ h1 {
   color: #5d0cff;
 }
 h5 {
-  /* margin: 32px 0; */
   color: #fff;
-  /* font-size: 24px; */
-}
-
-.complete {
-  text-decoration: line-through;
-  opacity: 0.4;
-}
-
-.todo-form {
-  margin-bottom: 32px;
 }
 
 table {
-  /* border: 1px solid red; */
   margin: auto;
   padding: 10px 20px;
   margin-bottom: 5px;
@@ -57,7 +45,7 @@ td {
 }
 
 .input {
-  padding: 12px 30px 12px 14px;
+  padding: 10px 30px 10px 14px;
   border-radius: 4px 0 0 4px;
   border: 1px solid #5d0cff;
   outline: none;
@@ -66,16 +54,8 @@ td {
   color: #fff;
 }
 
-.select {
-  
-}
-
-.todo-input::placeholder {
-  color: #e2e2e2;
-}
-
-.submit-button {
-  padding: 12px;
+.button {
+  padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -87,81 +67,8 @@ td {
   );
   color: #fff;
   text-transform: capitalize;
-  width: 100px;
 }
 
-.todo-input.edit {
-  border: 2px solid #149fff;
-}
-
-.todo-button.edit {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
-  padding: 16px 22px;
-}
-
-.todo-container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-
-.todo-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 4px auto;
-  color: #fff;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
-  );
-
-  padding: 16px;
-  border-radius: 5px;
-  width: 90%;
-}
-
-.todo-row:nth-child(4n + 1) {
-  background: linear-gradient(
-    90deg,
-    rgba(93, 12, 255, 1) 0%,
-    rgba(155, 0, 250, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 2) {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
-  );
-}
-
-.todo-row:nth-child(4n + 3) {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
-}
-
-.icons {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.delete-icon {
-  margin-right: 5px;
-  color: #fff;
-}
-
-.edit-icon {
-  color: #fff;
+.back{
+  margin-top: 20px;
 }

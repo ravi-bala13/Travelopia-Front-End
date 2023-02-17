@@ -10,7 +10,7 @@ function App() {
     <div className="App">  
       <Routes>
         <Route path="/" element={<Form />} />
-        <Route path="/details" element={<DetailsPage />} />
+        <Route path="/details/:emailId" element={<DetailsPage />} />
       </Routes>
     </div>
   );

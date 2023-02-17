@@ -1,15 +1,17 @@
-import React from "react";
+import {useState} from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function Form() {
 
-    let [details, setDetails] = React.useState({
+    // This variable used to change components of the page
+    let [goToDetails, setGoToDetails] = useState(false)
+    let [details, setDetails] = useState({
         "name": "",
         "email": "",
-        "place": "inida",
-        "no_of_travellers": 0,
-        "amount": 0
+        "place": "india",
+        "no_of_travellers": "",
+        "amount": ""
     })
     
     const handleChange = (e) => {
@@ -29,17 +31,21 @@ function Form() {
             no_of_travellers: details.no_of_travellers,
             amount: details.amount
         }
-        console.log(payload)
+        console.log("saving", payload)
         axios.post('http://localhost:8080/users', payload)
           .then(function (response) {
-            console.log("response", response.data);
+            console.log("response", response);
+            setGoToDetails(true)
+            alert("Registration Successfull")
           })
           .catch(function (error) {
+            alert(error + " and Make sure emailid unique and backend should run")
             console.log("error", error);
           });
+          
     }
 
-  return (
+  return ( goToDetails ? <Navigate to={`/details/${details.email}`} replace={true} /> :
     <div>
         <h1>Register</h1>
         <form onSubmit={handleSubmit} className='form'>
@@ -58,7 +64,6 @@ function Form() {
                         name='name'
                         className='input'
                         onChange={handleChange}
-                        // ref={}
                         />
                     </td>
                 </tr>
@@ -74,7 +79,6 @@ function Form() {
                         name='email'
                         className='input'
                         onChange={handleChange}
-                        // ref={}
                         />
                     </td>
                 </tr>
@@ -84,9 +88,9 @@ function Form() {
                     </td>
                     <td>
                         <select name="place" className="select" onChange={handleChange}>
-                            <option value="india">India</option>
-                            <option value="africa">Africa</option>
-                            <option value="europe">Europe</option>
+                            <option value="India">India</option>
+                            <option value="Africa">Africa</option>
+                            <option value="Europe">Europe</option>
                         </select>
                     </td>
                 </tr>
@@ -96,13 +100,12 @@ function Form() {
                     </td>
                     <td>
                         <input 
-                        type="Number"
+                        type="number"
                         placeholder='Enter No of Travelers'
                         value={details.no_of_travellers}
                         name='no_of_travellers'
                         className='input'
                         onChange={handleChange}
-                        // ref={}
                         />
                     </td>
                 </tr>
@@ -113,20 +116,17 @@ function Form() {
                     <td>
                         <input 
                         type="number"
-                        placeholder='Budget Per Person'
+                        placeholder='Budget Per Person in Doller'
                         value={details.amount}
                         name='amount'
                         className='input'
                         onChange={handleChange}
-                        // ref={}
                         />
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <Link to={"/details"}>      
-                <button className="submit-button">Submit</button>
-            </Link>
+                <button type="submit" className="button">Submit</button>
         </form>
     </div>
   );
